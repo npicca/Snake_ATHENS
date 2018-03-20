@@ -2,12 +2,16 @@ package athensproject;
 
 public class View {
 
+    private static MainPanel panel;
+
     public View(MainWindow window){
-        //attaches the view to the main window
+        this.panel = window.getMainPanel();
     }
 
-    public static void update(){
-        //This method will be called every tick, getting model information using Snake.getSnakePixels() and Grid.getFruit()
+    public static void update() {
+        panel.repaint();
+
+
     }
 
 }

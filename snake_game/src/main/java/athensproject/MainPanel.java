@@ -1,7 +1,11 @@
 package athensproject;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -10,10 +14,17 @@ import java.util.List;
 public class MainPanel extends JPanel {
 
     private Graphics graph;
+    private BufferedImage apple;
 
 
     public MainPanel() {
         this.setBackground(Color.blue);
+        apple = null;
+        try {
+            apple = ImageIO.read(new File("apple.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void drawRect(int coorX,int coorY) {
@@ -21,7 +32,6 @@ public class MainPanel extends JPanel {
         graph.setColor(Color.CYAN);
         graph.fill3DRect(coorX, coorY, 25, 25,true);
     }
-
 
 
     @Override
@@ -43,8 +53,8 @@ public class MainPanel extends JPanel {
 
 
 
-
-
+        Pixel fruitPos = Grid.getFruit();
+        graph.drawImage(apple, 25*fruitPos.getX(), 25*fruitPos.getY(), null);
 
     }
 
