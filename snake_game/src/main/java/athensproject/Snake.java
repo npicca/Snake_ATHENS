@@ -3,7 +3,7 @@ package athensproject;
 import java.util.ArrayList;
 import java.util.List;
 
-import static athensproject.MoveDirections.DOWN;
+import static athensproject.MoveDirections.*;
 
 public class Snake {
 
