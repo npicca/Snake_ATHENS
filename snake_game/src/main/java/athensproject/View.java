@@ -1,6 +1,7 @@
 package athensproject;
 
 public class View {
+
     public View(MainWindow window){
         //attaches the view to the main window
     }
