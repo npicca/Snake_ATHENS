@@ -3,6 +3,8 @@ package athensproject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static athensproject.MoveDirections.DOWN;
+
 public class Snake {
 
     private static MoveDirections direction;
@@ -11,6 +13,14 @@ public class Snake {
 
     public static void changeDirection(MoveDirections d){
         direction = d;
+    }
+
+    Snake () {
+        direction = DOWN;
+        lastRemovedPixel = new Pixel(10, 9);
+
+        tail.add(new Pixel(10, 10));
+        tail.add(new Pixel(10,11));
     }
 
     /**
