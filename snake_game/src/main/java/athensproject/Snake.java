@@ -72,7 +72,7 @@ public class Snake {
         int headX = head.getX();
         int headY = head.getY();
 
-        return tail.indexOf(head) != -1 // Check for snake bitting itself
+        return tail.lastIndexOf(head) != 0 // Check for snake bitting itself
                 || headX < 0 || headX > Grid.width // Check for snake bitting the wall
                 || headY < 0 || headY > Grid.height;
     }
