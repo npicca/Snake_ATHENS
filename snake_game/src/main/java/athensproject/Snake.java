@@ -22,7 +22,7 @@ public class Snake {
         tail.remove(tail.size() - 1);
 
         // Get coordinates of snake's head
-        Pixel head = tail.get(0);
+        Pixel head = getHead();
         int headX = head.getX();
         int headY = head.getY();
 
@@ -45,12 +45,20 @@ public class Snake {
     }
 
     /**
+     * Return snake's head.
+     * @return Snake's head.
+     */
+    public static Pixel getHead() {
+        return tail.get(0);
+    }
+
+    /**
      * Check whether snake is bitting it's own tail or the wall.
      * @return Whether the snake is dead.
      */
     boolean isDead(){
         // Get coordinates of snake's head
-        Pixel head = tail.get(0);
+        Pixel head = getHead();
         int headX = head.getX();
         int headY = head.getY();
 
