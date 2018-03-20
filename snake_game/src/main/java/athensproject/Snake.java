@@ -12,7 +12,15 @@ public class Snake {
     private static Pixel lastRemovedPixel;
 
     public static void changeDirection(MoveDirections d){
+        if((direction == UP && d == DOWN) ||
+                (direction == DOWN && d == UP ||
+                        (direction == LEFT && d == RIGHT)||
+                        (direction == RIGHT && d == LEFT))){
+            return;
+        }
+
         direction = d;
+        
     }
 
     Snake () {
@@ -40,10 +48,10 @@ public class Snake {
         switch ( direction )
         {
             case UP:
-                tail.add(0, new Pixel(headX, headY + 1));
+                tail.add(0, new Pixel(headX, headY - 1));
                 break;
             case DOWN:
-                tail.add(0, new Pixel(headX, headY - 1));
+                tail.add(0, new Pixel(headX, headY + 1));
                 break;
             case RIGHT:
                 tail.add(0, new Pixel(headX + 1, headY));
