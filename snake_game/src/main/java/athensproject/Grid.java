@@ -3,6 +3,7 @@ package athensproject;
 import java.util.Random;
 
 public class Grid {
+    public static int size = 50;
     private static Pixel fruit;
 
     public static Pixel getFruit() {
