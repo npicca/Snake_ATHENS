@@ -1,9 +1,13 @@
-package athensproject;
+package athensproject.view;
+
+import athensproject.GameSettings;
+import athensproject.model.Grid;
+import athensproject.model.Field;
+import athensproject.model.Snake;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -14,51 +18,40 @@ import java.util.List;
 public class MainPanel extends JPanel {
 
     private Graphics graph;
-    private BufferedImage apple;
-
+    private Image apple;
 
     public MainPanel() {
         this.setBackground(Color.blue);
         apple = null;
         try {
-            apple = ImageIO.read(new File("apple.png"));
+            apple = ImageIO.read(new File(GameSettings.FRUIT_IMAGE_PATH));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     private void drawRect(int coorX,int coorY) {
-
-        graph.setColor(Color.CYAN);
-        graph.fill3DRect(coorX, coorY, 25, 25,true);
+        graph.setColor(GameSettings.SNAKE_COLOR);
+        graph.fill3DRect(coorX, coorY, GameSettings.SNAKE_THICKNESS_IN_PIXELS, GameSettings.SNAKE_THICKNESS_IN_PIXELS,true);
     }
-
 
     @Override
     public void paint(Graphics graphics) {
         super.paint(graphics);
 
         this.graph = graphics;
-        /* this.setForeground(Color.BLUE); */
 
         graph.setColor( Color.DARK_GRAY );
         graph.fill3DRect(0, 0, 1000, 1000,true);
 
-        List<Pixel> snakeList = Snake.getSnakePixels();
+        List<Field> snakeList = Snake.getSnakeFields();
 
-        for ( Pixel snakePixel : snakeList ){
-            drawRect( snakePixel.getX()*25, snakePixel.getY()*25 );
-
+        for ( Field snakeField : snakeList ){
+            drawRect( snakeField.getX()*25, snakeField.getY()*25 );
         }
 
-
-
-        Pixel fruitPos = Grid.getFruit();
+        Field fruitPos = Grid.getFruitPosition();
         graph.drawImage(apple, 25*fruitPos.getX(), 25*fruitPos.getY(), null);
-
     }
-
-
-
 
 }
