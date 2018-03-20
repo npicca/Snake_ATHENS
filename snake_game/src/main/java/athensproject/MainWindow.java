@@ -30,4 +30,8 @@ public class MainWindow extends JFrame {
         int top = (screenHeight - WINDOW_HEIGHT) / 2;
         setLocation(left, top);
     }
+
+    public static MainPanel getMainPanel() {
+        return mainPanel;
+    }
 }

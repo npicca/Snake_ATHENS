@@ -14,6 +14,8 @@ public class State{
 
 
     private static boolean isFruitEaten(){
+        System.out.println(snake.getHead().getX());
+        System.out.println(grid.getFruit().getX());
         return snake.getHead().equals(grid.getFruit());
     }
 
