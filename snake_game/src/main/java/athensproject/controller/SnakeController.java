@@ -78,6 +78,7 @@ public class SnakeController {
                 snakeBody.add(0, new Field(headX - 1, headY));
                 break;
         }
+        KeyboardHandlerSingleton.getInstance().unlock(); //unlocks controller for next move
     }
 
     public static void growSnake() {
