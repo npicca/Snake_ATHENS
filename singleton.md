@@ -3,12 +3,12 @@ We decided to because they are inherently unique elements of the game, and to mo
 This however proved to be cumbersome, so we switched to a singleton pattern (there are still a few traces of the previous approach, we'll clean them in a future refactor).
 Most of the singletons are implemented in very simple way, like in the following pseudocode:
 ```Java
-public Class Myclass {
-	private static Myclass instance = new Myclass();
-	private Myclass(){
+public Class MyClass {
+	private static MyClass instance = new MyClass();
+	private MyClass(){
 		//do something
 	}
-	public static Myclass getInstance(){
+	public static MyClass getInstance(){
 		return this.instance;
 	}
 }
