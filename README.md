@@ -8,4 +8,5 @@ Design patterns usage:
 	Singletons: 
  		- score class
  		- grid class
- 		- mainWindow class
+ 		- main window class
+		- keyboard handler class
