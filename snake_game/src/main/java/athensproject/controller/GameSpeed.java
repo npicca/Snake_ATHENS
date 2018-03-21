@@ -3,6 +3,7 @@ package athensproject.controller;
 import java.util.Timer;
 
 public interface GameSpeed {
+        public Timer timer = null;
         public Timer getGameSpeed();
-        public void restartGame();
+        public Timer restartGame( Timer stopTime );
 }

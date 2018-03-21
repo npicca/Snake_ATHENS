@@ -11,8 +11,8 @@ import java.util.TimerTask;
 
 public class Main {
     private static MainWindow mainWindow;
-    private static MainPanel mainPanel;
-    private static GameSpeed gamespeed;
+    public static MainPanel mainPanel;
+
 
     public static void main(String[] args) {
         mainWindow = MainWindow.getInstance();
@@ -21,13 +21,20 @@ public class Main {
         startUpGUI();
 
 
-        new Timer().schedule(new TimerTask() {
+
+
+        // Set speed of snake
+        SnakeController.gamespeed = new SlowSpeed();
+        SnakeController.threadID = new Timer();
+
+        SnakeController.threadID.schedule(new TimerTask() {
             @Override
             public void run() {
                 SnakeController.moveSnakeAndUpdateGameState();
                 mainPanel.repaint();
             }
         }, 0, GameSettings.GAME_TICK_TIME_MILLISEC);
+
 
 
 

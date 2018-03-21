@@ -7,6 +7,7 @@ import athensproject.model.Snake;
 import athensproject.model.Score;
 
 import java.util.List;
+import java.util.Timer;
 
 import static athensproject.model.MoveDirection.*;
 
@@ -14,6 +15,9 @@ import static athensproject.model.MoveDirection.*;
  * Created by lsienko on 20.03.18.
  */
 public class SnakeController {
+
+    public static GameSpeed gamespeed;
+    public static Timer threadID;
 
     public static void moveSnakeAndUpdateGameState() {
         doMoveByUpdatingSnakeFields();
@@ -30,6 +34,21 @@ public class SnakeController {
         	scoreObject.showScore();
             SnakeController.growSnake();
             Grid.spawnFruit();
+
+
+            switch ( scoreObject.getScore() % 3 ) {
+                case 0:
+                    gamespeed = new SlowSpeed();
+                    break;
+                case 1:
+                    gamespeed = new MiddleSpeed();
+
+                    break;
+                case 2: gamespeed = new FastSpeed();
+                    break;
+            }
+            // Start a new thread
+            threadID = gamespeed.restartGame( threadID );
 
 
 
