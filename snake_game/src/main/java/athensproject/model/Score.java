@@ -17,7 +17,7 @@ public class Score { //Singleton Score
 	      return scoreInstance;
 	   }
 	   public int getScore(){
-		   return this.score
+		   return this.score;
 	   }
 	   public void updateScore(){
 		   this.score++;
