@@ -1,4 +1,10 @@
 package athensproject.controller;
 
-public class SlowSpeed {
+import java.util.Timer;
+
+public class SlowSpeed implements GameSpeed {
+
+    public Timer getGameSpeed() {
+        return null;
+    }
 }
