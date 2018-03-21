@@ -5,7 +5,7 @@ Game is controlled by arrows and your goal is to eat as many apples as you can w
 
 Design patterns usage:
 
-	Singletons: 
+	Singletons:
  		- score class
  		- grid class
  		- main window class
