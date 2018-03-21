@@ -26,6 +26,10 @@ public class SnakeController {
         else if (Grid.isFruitEaten()){
             SnakeController.growSnake();
             Grid.spawnFruit();
+
+
+
+
         }
 
     }

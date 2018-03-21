@@ -4,4 +4,5 @@ import java.util.Timer;
 
 public interface GameSpeed {
         public Timer getGameSpeed();
+        public void restartGame();
 }
