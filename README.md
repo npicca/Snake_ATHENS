@@ -9,3 +9,4 @@ Design patterns usage:
  		- score class
  		- grid class
  		- mainWindow class
+		- KeyboardHandlerSingleton class
