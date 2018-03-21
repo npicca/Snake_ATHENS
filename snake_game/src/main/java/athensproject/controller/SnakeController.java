@@ -4,6 +4,7 @@ import athensproject.model.Field;
 import athensproject.model.Grid;
 import athensproject.model.MoveDirection;
 import athensproject.model.Snake;
+import athensproject.model.Score;
 
 import java.util.List;
 
@@ -24,6 +25,9 @@ public class SnakeController {
         }
 
         else if (Grid.isFruitEaten()){
+        	Score scoreObject = Score.getInstance();
+        	scoreObject.updateScore();
+        	scoreObject.showScore();
             SnakeController.growSnake();
             Grid.spawnFruit();
 
