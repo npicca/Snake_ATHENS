@@ -11,5 +11,5 @@ Design patterns usage:
  		- main window class
 		- keyboard handler class
 	
-  Strategy pattern:
+  	Strategy pattern:
 		- speed of the snake
