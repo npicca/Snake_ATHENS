@@ -1,5 +1,8 @@
 package athensproject.model;
 
+import athensproject.GameSettings;
+import athensproject.view.MainWindow;
+
 public class Score { //Singleton Score
 	   private static Score scoreInstance;
 	   
@@ -26,7 +29,8 @@ public class Score { //Singleton Score
 	   
 	   public void showScore(){
 		  //call View Method to draw score in Window
-	      System.out.println("Score : " + score);
+		   MainWindow.getInstance().setTitle(GameSettings.WINDOW_TITLE+" - Score : " + score);
+		   System.out.println("Score : " + score);
 	   }
 
 }
