@@ -16,10 +16,14 @@ public class Score { //Singleton Score
 		   }
 	      return scoreInstance;
 	   }
-	   
-	   public void updateScore(){
-		   Score.scoreInstance.score++;
+	   public int getScore(){
+		   return this.score
 	   }
+	   public void updateScore(){
+		   this.score++;
+	   }
+	
+	   
 	   public void showScore(){
 		  //call View Method to draw score in Window
 	      System.out.println("Score : " + score);
