@@ -10,6 +10,6 @@ Design patterns usage:
  		- grid class
  		- main window class
 		- keyboard handler class
-
-	Strategy pattern:
+	
+  Strategy pattern:
 		- speed of the snake

@@ -11,7 +11,7 @@ public class GameSettings {
     public final static int WINDOW_HEIGHT_IN_PIXELS = 1000;
     public final static int GRID_WIDTH_NUMBER_OF_FIELDS = 40;
     public final static int GRID_HEIGHT_NUMBER_OF_FIELDS = 40;
-    public final static String WINDOW_TITLE = "Snake game";
+    public final static String WINDOW_TITLE = "SNAKE";
     public final static String FRUIT_IMAGE_PATH = "snake_game/apple.png";
     public final static int SNAKE_THICKNESS_IN_PIXELS = 25;
     public final static Color SNAKE_COLOR = new Color(0, 200, 255);

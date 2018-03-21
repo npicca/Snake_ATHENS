@@ -1,7 +1,7 @@
 package athensproject.view;
 
 import athensproject.GameSettings;
-import athensproject.controller.KeyboardHandler;
+import athensproject.controller.KeyboardHandlerSingleton;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,7 +20,7 @@ public class MainWindow extends JFrame {
         mainPanel = new MainPanel();
         this.add(mainPanel, BorderLayout.CENTER);
 
-        this.addKeyListener(new KeyboardHandler());
+        this.addKeyListener(KeyboardHandlerSingleton.getInstance());
     }
 
     public static MainWindow getInstance() {
