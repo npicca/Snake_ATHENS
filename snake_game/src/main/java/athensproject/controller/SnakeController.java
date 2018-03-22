@@ -20,8 +20,9 @@ public class SnakeController {
 
         if(Snake.isDead()){
             //close window
-            System.out.println("You Lost!");
-            System.exit(0);
+            //System.out.println("You Lost!");
+            //System.exit(0);
+            GameOver.reset();
         }
 
         else if (Grid.isFruitEaten()){
