@@ -1,10 +1,6 @@
 package athensproject.controller;
 
-import athensproject.model.Field;
-import athensproject.model.Grid;
-import athensproject.model.MoveDirection;
-import athensproject.model.Snake;
-import athensproject.model.Score;
+import athensproject.model.*;
 
 import java.util.List;
 import java.util.Timer;
@@ -58,16 +54,15 @@ public class SnakeController {
 
     }
 
-    public static void changeDirection(MoveDirection d) {
-        MoveDirection presentDirection = Grid.getSnake().getPresentDirection();
-        if ((presentDirection == UP && d == DOWN) ||
-                (presentDirection == DOWN && d == UP ||
-                        (presentDirection == LEFT && d == RIGHT)||
-                        (presentDirection == RIGHT && d == LEFT))) {
+    public static void changeState(SnakeState state) {
+        SnakeState currentState = Grid.getSnake().getCurrentState();
+
+
+        if (state == null) {
             return;
         }
 
-        Grid.getSnake().setPresentDirection(d);
+        Grid.getSnake().setCurrentState(state);
     }
 
     /**
@@ -80,28 +75,8 @@ public class SnakeController {
         snake.setLastRemovedField(snakeBody.get(snakeBody.size() - 1));
         snakeBody.remove(snakeBody.size() - 1);
 
-        // Get coordinates of snake's head
-        Field head = snake.getHead();
-        int headX = head.getX();
-        int headY = head.getY();
-
         // Add new pixel in specified presentDirection
-        MoveDirection presentDirection = snake.getPresentDirection();
-        switch (presentDirection)
-        {
-            case UP:
-                snakeBody.add(0, new Field(headX, headY - 1));
-                break;
-            case DOWN:
-                snakeBody.add(0, new Field(headX, headY + 1));
-                break;
-            case RIGHT:
-                snakeBody.add(0, new Field(headX + 1, headY));
-                break;
-            case LEFT:
-                snakeBody.add(0, new Field(headX - 1, headY));
-                break;
-        }
+        Snake.getCurrentState().add();
         KeyboardHandlerSingleton.getInstance().unlock(); //unlocks controller for next move
     }
 
