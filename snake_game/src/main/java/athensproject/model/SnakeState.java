@@ -16,4 +16,5 @@ public abstract class SnakeState {
         List<Field> snakeBody = Snake.getSnakeFields();
         snakeBody.add(0, new Field(headX + x, headY + y));
     }
+
 }

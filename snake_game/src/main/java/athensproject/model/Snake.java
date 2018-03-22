@@ -1,11 +1,15 @@
 package athensproject.model;
 
 import athensproject.GameSettings;
+import athensproject.controller.GameOver;
+import athensproject.controller.Restart;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Snake {
+
+public class Snake implements Restart{
+
     private static SnakeState state;
     private static List<Field> body = new ArrayList<Field>();
     private static Field lastRemovedField;
@@ -16,6 +20,7 @@ public class Snake {
 
         body.add(new Field(10, 10));
         body.add(new Field(10,11));
+        GameOver.addRestartable(this);
     }
 
     /**
@@ -39,6 +44,14 @@ public class Snake {
         return body.lastIndexOf(head) != 0 // Check for snake bitting itself
                 || headX < 0 || headX > GameSettings.GRID_WIDTH_NUMBER_OF_FIELDS // Check for snake bitting the wall
                 || headY < 0 || headY > GameSettings.GRID_HEIGHT_NUMBER_OF_FIELDS;
+    }
+
+    public void restart() {
+        body = new ArrayList<Field>();
+        lastRemovedField = new Field(10, 9);
+        body.add(new Field(10, 10));
+        body.add(new Field(10,11));
+
     }
 
     public static List<Field> getSnakeFields() {

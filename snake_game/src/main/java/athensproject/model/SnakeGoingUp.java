@@ -2,7 +2,9 @@ package athensproject.model;
 
 import java.util.List;
 
+
 public class SnakeGoingUp extends SnakeState {
+
     private Snake snake;
 
     SnakeGoingUp(Snake snake) {
@@ -10,7 +12,9 @@ public class SnakeGoingUp extends SnakeState {
     }
 
     public void add() {
+
         addByCoordinates(0,-1);
+
     }
 
     public SnakeState goUp() {

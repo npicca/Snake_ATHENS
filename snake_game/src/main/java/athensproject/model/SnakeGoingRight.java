@@ -2,6 +2,7 @@ package athensproject.model;
 
 
 public class SnakeGoingRight extends SnakeState {
+
     private Snake snake;
 
     SnakeGoingRight(Snake snake) {
@@ -10,7 +11,9 @@ public class SnakeGoingRight extends SnakeState {
 
     public void add() {
         // Get coordinates of snake's head
+
         addByCoordinates(1,0);
+
     }
 
     public SnakeState goUp() {
