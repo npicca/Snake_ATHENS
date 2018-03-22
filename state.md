@@ -1,0 +1,1 @@
+We decided to implement the state pattern in the movement of the snake. There are classes SnakeGoingUp, SnakeGoingDown, SnakeGoingRight, SnakeGoingLeft which implement the SnakeState interface. There are methods add, goUp, goDown, goLeft, goRight required by the interface. This pattern helped us to get rid off long switch conditions.
