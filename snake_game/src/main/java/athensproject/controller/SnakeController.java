@@ -30,22 +30,23 @@ public class SnakeController {
         	scoreObject.updateScore();
         	scoreObject.showScore();
             SnakeController.growSnake();
-            Grid.spawnFruit();
 
 
-            switch ( scoreObject.getScore() % 3 ) {
-                case 0:
+
+            switch ( Grid.getApple() ) {
+                case CLASSIC:
                     gamespeed = new SlowSpeed();
                     break;
-                case 1:
+                case MEDIUMSPEED:
                     gamespeed = new MiddleSpeed();
-
                     break;
-                case 2: gamespeed = new FastSpeed();
+                case FASTSPEED: gamespeed = new FastSpeed();
                     break;
             }
             // Start a new thread
             threadID = gamespeed.restartGame( threadID );
+
+            Grid.spawnFruit();
 
 
 

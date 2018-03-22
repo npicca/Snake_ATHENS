@@ -5,11 +5,8 @@ import athensproject.model.Grid;
 import athensproject.model.Field;
 import athensproject.model.Snake;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -18,16 +15,10 @@ import java.util.List;
 public class MainPanel extends JPanel {
 
     private Graphics graph;
-    private Image apple;
 
     public MainPanel() {
         this.setBackground(Color.blue);
-        apple = null;
-        try {
-            apple = ImageIO.read(new File(GameSettings.FRUIT_IMAGE_PATH));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
     }
 
     private void drawRect(int coorX,int coorY, Color color) {
@@ -58,7 +49,8 @@ public class MainPanel extends JPanel {
         }
 
         Field fruitPos = Grid.getFruitPosition();
-        graph.drawImage(apple, 25*fruitPos.getX(), 25*fruitPos.getY(), null);
+        graph.drawImage(Grid.getApple().getImage() , 25*fruitPos.getX(), 25*fruitPos.getY(), null);
+
     }
 
 }

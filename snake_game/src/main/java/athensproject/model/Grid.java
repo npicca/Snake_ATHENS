@@ -11,10 +11,12 @@ public class Grid implements Restart{
     private static Grid instance = new Grid();
 
     private static Field fruitPosition;
+    private static Apple apple;
     private static Snake snake;
 
     private Grid(){
         snake = new Snake();
+        apple = Apple.CLASSIC;
         spawnFruit();
         GameOver.addRestartable(this);
     }
@@ -27,13 +29,29 @@ public class Grid implements Restart{
         return fruitPosition;
     }
 
+    public static Apple getApple(){
+        return apple;
+    }
+
+    public static void reGenerateApple(){
+      apple = apple.generateNewApple();
+    }
+
     public static boolean isFruitEaten(){
         return snake.getHead().equals(fruitPosition);
     }
 
     public static void spawnFruit(){
-        fruitPosition = new Field(new Random().nextInt(GameSettings.GRID_WIDTH_NUMBER_OF_FIELDS -10),
-                new Random().nextInt(GameSettings.GRID_HEIGHT_NUMBER_OF_FIELDS -10));
+
+        fruitPosition = new Field(new Random().nextInt(GameSettings.GRID_WIDTH_NUMBER_OF_FIELDS - 10),
+                new Random().nextInt(GameSettings.GRID_HEIGHT_NUMBER_OF_FIELDS - 10));
+
+        while ( Snake.getSnakeFields().contains(fruitPosition) ) {
+            fruitPosition = new Field(new Random().nextInt(GameSettings.GRID_WIDTH_NUMBER_OF_FIELDS - 10),
+                    new Random().nextInt(GameSettings.GRID_HEIGHT_NUMBER_OF_FIELDS - 10));
+        }
+
+        reGenerateApple();
     }
 
     public void restart() {

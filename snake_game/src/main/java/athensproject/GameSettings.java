@@ -13,6 +13,9 @@ public class GameSettings {
     public final static int GRID_HEIGHT_NUMBER_OF_FIELDS = 40;
     public final static String WINDOW_TITLE = "SNAKE";
     public final static String FRUIT_IMAGE_PATH = "snake_game/apple.png";
+    public final static String CLASSICAPPLE_IMAGE_PATH = "snake_game/apple.png";
+    public final static String MEDIUMAPPLE_IMAGE_PATH = "snake_game/MEDIUMAPPLE.png";
+    public final static String FASTAPPLE_IMAGE_PATH = "snake_game/FASTAPPLE.png";
     public final static int SNAKE_THICKNESS_IN_PIXELS = 25;
     public final static Color SNAKE_HEAD_COLOR = Color.blue;
     public final static Color SNAKE_BODY_COLOR = new Color(0, 200, 255);
