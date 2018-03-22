@@ -6,13 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Snake {
-
-    private static MoveDirection presentDirection;
+    private static SnakeState state;
     private static List<Field> body = new ArrayList<Field>();
     private static Field lastRemovedField;
 
     public Snake() {
-        presentDirection = MoveDirection.DOWN;
+        state = new SnakeGoingDown(this);
         lastRemovedField = new Field(10, 9);
 
         body.add(new Field(10, 10));
@@ -46,8 +45,8 @@ public class Snake {
         return body;
     }
 
-    public static MoveDirection getPresentDirection() {
-        return presentDirection;
+    public static SnakeState getCurrentState() {
+        return state;
     }
 
     public static Field getLastRemovedField() {
@@ -58,7 +57,7 @@ public class Snake {
         Snake.lastRemovedField = lastRemovedField;
     }
 
-    public static void setPresentDirection(MoveDirection presentDirection) {
-        Snake.presentDirection = presentDirection;
+    public static void setCurrentState(SnakeState state) {
+        Snake.state = state;
     }
 }

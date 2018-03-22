@@ -1,6 +1,7 @@
 package athensproject.controller;
 
 import athensproject.model.MoveDirection;
+import athensproject.model.Snake;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -25,7 +26,22 @@ public class KeyboardHandlerSingleton extends KeyAdapter {
     	int pressedKeyCode = keyEvent.getKeyCode();
 		MoveDirection directionToMoveTheSnake = MoveDirection.getMoveDirectionByPressedKeyCode(pressedKeyCode);
 		if (directionToMoveTheSnake != null && ! isLocked) {
-			SnakeController.changeDirection(directionToMoveTheSnake);
+
+			switch (directionToMoveTheSnake) {
+				case UP:
+					SnakeController.changeState(Snake.getCurrentState().goUp());
+					break;
+				case DOWN:
+					SnakeController.changeState(Snake.getCurrentState().goDown());
+					break;
+				case LEFT:
+					SnakeController.changeState(Snake.getCurrentState().goLeft());
+					break;
+				case RIGHT:
+					SnakeController.changeState(Snake.getCurrentState().goRight());
+					break;
+			}
+
 			isLocked = true;
 		}
     }
