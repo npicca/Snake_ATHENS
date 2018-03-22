@@ -17,7 +17,8 @@ public class GameSettings {
     public final static String MEDIUMAPPLE_IMAGE_PATH = "snake_game/MEDIUMAPPLE.png";
     public final static String FASTAPPLE_IMAGE_PATH = "snake_game/FASTAPPLE.png";
     public final static int SNAKE_THICKNESS_IN_PIXELS = 25;
-    public final static Color SNAKE_COLOR = new Color(0, 200, 255);
+    public final static Color SNAKE_HEAD_COLOR = Color.blue;
+    public final static Color SNAKE_BODY_COLOR = new Color(0, 200, 255);
     public final static Color BACKGROUND_FIRST_COLOR = new Color(167,217,72);
     public final static Color BACKGROUND_SECOND_COLOR = new Color(142,204,57);
 };

@@ -1,10 +1,12 @@
 package athensproject.model;
 
 import athensproject.GameSettings;
+import athensproject.controller.GameOver;
+import athensproject.controller.Restart;
 
 import java.util.Random;
 
-public class Grid {
+public class Grid implements Restart{
 
     private static Grid instance = new Grid();
 
@@ -16,6 +18,7 @@ public class Grid {
         snake = new Snake();
         apple = Apple.CLASSIC;
         spawnFruit();
+        GameOver.addRestartable(this);
     }
 
     public static Grid getInstance() {
@@ -49,6 +52,10 @@ public class Grid {
         }
 
         reGenerateApple();
+    }
+
+    public void restart() {
+        spawnFruit();
     }
 
     public static Snake getSnake() {

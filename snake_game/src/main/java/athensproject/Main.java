@@ -15,6 +15,12 @@ public class Main {
 
 
     public static void main(String[] args) {
+        try{
+            System.setProperty("sun.java2d.opengl", "true");
+        }
+        catch(Exception e){
+            System.out.println("Can't enable hardware acceleration, expect choppy framerates");
+        }
         mainWindow = MainWindow.getInstance();
         mainPanel = mainWindow.getMainPanel();
 
