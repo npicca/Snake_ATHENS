@@ -57,10 +57,7 @@ public class SnakeController {
         SnakeState currentState = Grid.getSnake().getCurrentState();
 
 
-        if (state == null || (currentState instanceof SnakeGoingUp && state instanceof SnakeGoingDown) ||
-                (currentState instanceof SnakeGoingDown && state instanceof SnakeGoingUp ||
-                        (currentState instanceof SnakeGoingLeft && state instanceof SnakeGoingRight)||
-                        (currentState instanceof SnakeGoingRight && state instanceof SnakeGoingLeft))) {
+        if (state == null) {
             return;
         }
 
