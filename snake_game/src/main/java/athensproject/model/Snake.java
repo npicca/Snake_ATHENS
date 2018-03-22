@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class Snake implements Restart{
+
     private static SnakeState state;
     private static List<Field> body = new ArrayList<Field>();
     private static Field lastRemovedField;

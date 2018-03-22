@@ -2,7 +2,8 @@ package athensproject.model;
 
 import java.util.List;
 
-public class SnakeGoingLeft implements SnakeState {
+public class SnakeGoingLeft extends SnakeState {
+
     private Snake snake;
 
     SnakeGoingLeft(Snake snake) {
@@ -10,13 +11,9 @@ public class SnakeGoingLeft implements SnakeState {
     }
 
     public void add() {
-        // Get coordinates of snake's head
-        Field head = snake.getHead();
-        int headX = head.getX();
-        int headY = head.getY();
 
-        List<Field> snakeBody = snake.getSnakeFields();
-        snakeBody.add(0, new Field(headX - 1, headY));
+        addByCoordinates(-1,0);
+
     }
 
 
