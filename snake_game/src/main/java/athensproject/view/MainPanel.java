@@ -30,8 +30,8 @@ public class MainPanel extends JPanel {
         }
     }
 
-    private void drawRect(int coorX,int coorY) {
-        graph.setColor(GameSettings.SNAKE_COLOR);
+    private void drawRect(int coorX,int coorY, Color color) {
+        graph.setColor(color);
         graph.fill3DRect(coorX, coorY, GameSettings.SNAKE_THICKNESS_IN_PIXELS, GameSettings.SNAKE_THICKNESS_IN_PIXELS,true);
     }
 
@@ -46,8 +46,15 @@ public class MainPanel extends JPanel {
 
         List<Field> snakeList = Snake.getSnakeFields();
 
-        for ( Field snakeField : snakeList ){
-            drawRect( snakeField.getX()*25, snakeField.getY()*25 );
+        // Draw snake's head
+        Field head = snakeList.get(0);
+        drawRect(head.getX()*25, head.getY()*25, GameSettings.SNAKE_HEAD_COLOR);
+
+        // Draw snake's body
+        Field snakeField;
+        for (int i = 1; i < snakeList.size(); i++) {
+            snakeField = snakeList.get(i);
+            drawRect( snakeField.getX()*25, snakeField.getY()*25, GameSettings.SNAKE_BODY_COLOR);
         }
 
         Field fruitPos = Grid.getFruitPosition();
