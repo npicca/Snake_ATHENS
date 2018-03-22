@@ -39,8 +39,15 @@ public class Grid {
     }
 
     public static void spawnFruit(){
-        fruitPosition = new Field(new Random().nextInt(GameSettings.GRID_WIDTH_NUMBER_OF_FIELDS -10),
-                new Random().nextInt(GameSettings.GRID_HEIGHT_NUMBER_OF_FIELDS -10));
+
+        fruitPosition = new Field(new Random().nextInt(GameSettings.GRID_WIDTH_NUMBER_OF_FIELDS - 10),
+                new Random().nextInt(GameSettings.GRID_HEIGHT_NUMBER_OF_FIELDS - 10));
+
+        while ( Snake.getSnakeFields().contains(fruitPosition) ) {
+            fruitPosition = new Field(new Random().nextInt(GameSettings.GRID_WIDTH_NUMBER_OF_FIELDS - 10),
+                    new Random().nextInt(GameSettings.GRID_HEIGHT_NUMBER_OF_FIELDS - 10));
+        }
+
         reGenerateApple();
     }
 
