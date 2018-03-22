@@ -19,8 +19,8 @@ public class SnakeController {
         doMoveByUpdatingSnakeFields();
 
         if(Snake.isDead()){
-            //close window
-            //System.out.println("You Lost!");
+           
+            System.out.println("You Lost!");
             //System.exit(0);
             GameOver.reset();
         }

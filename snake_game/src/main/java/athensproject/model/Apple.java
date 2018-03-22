@@ -23,7 +23,7 @@ public enum Apple{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("hotovo");
+        //System.out.println("hotovo");
 
         mediumImage = null;
         try {
@@ -46,8 +46,8 @@ public enum Apple{
         Random rand = new Random();
 
         int  n = rand.nextInt(3);
-        System.out.println("Random number for Apple is :");
-        System.out.println(n);
+        //System.out.println("Random number for Apple is :");
+        //System.out.println(n);
 
         switch (n) {
             case 0:   return FASTSPEED;
