@@ -14,3 +14,11 @@ Design patterns usage:
   	Strategy pattern:
 		- speed of the snake
 		
+	Command pattern:
+		- restart of the game
+		
+	State pattern:
+		- snake's movement
+		
+	MVC pattern:
+		- whole game composition
