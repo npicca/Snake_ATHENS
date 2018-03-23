@@ -22,3 +22,10 @@ Design patterns usage:
 		
 	MVC pattern:
 		- whole game composition
+
+Authors: 
+		Jan Jendrusak
+		Simon Urbanek
+		Lukasz Sienko
+		Niccolo' Picca
+		Amitabh Yadav
